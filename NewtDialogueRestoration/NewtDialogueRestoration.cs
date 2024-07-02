@@ -36,7 +36,7 @@ namespace NewtDialogueRestoration
             UpgradeDialogueOnRerollChance = Config.Bind("Chances", "Upgrade Dialogue On Reroll", 0f,
                 "Chance for \"upgrade\" dialogue on rerolling lunar items");
             UpgradeDialogueOnCauldronChance = Config.Bind("Chances", "Upgrade Dialogue On Cauldron", 0f,
-                "Chance for \"upgrade\" dialogue on using a lunar cauldron");
+                "Chance for \"upgrade\" dialogue on using a cauldron");
 
             ModSettingsManager.AddOption(new SliderOption(PurchaseDialogueChance));
             ModSettingsManager.AddOption(new SliderOption(AnnoyDialogueChance));
