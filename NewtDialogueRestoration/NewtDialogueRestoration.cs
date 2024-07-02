@@ -87,14 +87,14 @@ namespace NewtDialogueRestoration
             }
 
             CharacterBody newtBody = GetNewtBody();
-            if (newtBody != null && Util.CheckRoll(percentChance))
+            if (newtBody && Util.CheckRoll(percentChance))
             {
                 int index;
+                // prevent same line from being used twice in a row
                 do
                 {
                     index = Random.Range(1, tokenCount);
-                } while (index == lastRolledIndex); // prevent same line from being used twice in a row
-
+                } while (index == lastRolledIndex);
                 // there are probably better ways to do this but i genuinely could not find one :v
                 Chat.SendBroadcastChat(new Chat.SimpleChatMessage
                 {
