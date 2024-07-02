@@ -104,6 +104,8 @@ namespace NewtDialogueRestoration
                         Util.GetBestBodyName(newtBody.gameObject),
                         Language.GetString(token + "_" + index))
                 });
+
+                Util.PlaySound("Play_UI_chatMessage", RoR2Application.instance.gameObject);
             }
         }
 
