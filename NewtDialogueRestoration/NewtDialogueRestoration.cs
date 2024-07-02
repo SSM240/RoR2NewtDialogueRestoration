@@ -95,6 +95,8 @@ namespace NewtDialogueRestoration
                 {
                     index = Random.Range(1, tokenCount);
                 } while (index == lastRolledIndex);
+                lastRolledIndex = index;
+
                 // there are probably better ways to do this but i genuinely could not find one :v
                 Chat.SendBroadcastChat(new Chat.SimpleChatMessage
                 {
@@ -102,7 +104,6 @@ namespace NewtDialogueRestoration
                         Util.GetBestBodyName(newtBody.gameObject),
                         Language.GetString(token + "_" + index))
                 });
-                lastRolledIndex = index;
             }
         }
 
