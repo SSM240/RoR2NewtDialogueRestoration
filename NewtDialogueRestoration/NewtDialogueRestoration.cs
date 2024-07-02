@@ -77,6 +77,8 @@ namespace NewtDialogueRestoration
             }
         }
 
+        private static int lastRolledIndex;
+
         private static void SendNewtMessage(string token, int tokenCount, float percentChance)
         {
             if (!NetworkServer.active)
@@ -87,13 +89,20 @@ namespace NewtDialogueRestoration
             CharacterBody newtBody = GetNewtBody();
             if (newtBody != null && Util.CheckRoll(percentChance))
             {
+                int index;
+                do
+                {
+                    index = Random.Range(1, tokenCount);
+                } while (index == lastRolledIndex); // prevent same line from being used twice in a row
+
                 // there are probably better ways to do this but i genuinely could not find one :v
                 Chat.SendBroadcastChat(new Chat.SimpleChatMessage
                 {
                     baseToken = string.Format(CultureInfo.InvariantCulture, "<color=#b0e5ff><size=120%>{0}: {1}</color></size>",
                         Util.GetBestBodyName(newtBody.gameObject),
-                        Language.GetString(token + "_" + Random.Range(1, tokenCount)))
+                        Language.GetString(token + "_" + index))
                 });
+                lastRolledIndex = index;
             }
         }
 
