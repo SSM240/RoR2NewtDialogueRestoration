@@ -28,7 +28,7 @@ namespace NewtDialogueRestoration
         {
             Log.Init(Logger);
 
-            PurchaseDialogueChance = Config.Bind("Chances", "Purchase Dialogue", 40f,
+            PurchaseDialogueChance = Config.Bind("Chances", "Purchase Dialogue", 50f,
                 "Chance for dialogue on purchasing a lunar item");
             AnnoyDialogueChance = Config.Bind("Chances", "Annoy Dialogue", 100f,
                 "Chance for dialogue on getting kicked out of the shop");
