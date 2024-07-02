@@ -86,7 +86,7 @@ namespace NewtDialogueRestoration
                 return;
             }
 
-            CharacterBody newtBody = GetNewtBody();
+            CharacterBody newtBody = FindNewtBody();
             if (newtBody && Util.CheckRoll(percentChance))
             {
                 int index;
@@ -109,7 +109,7 @@ namespace NewtDialogueRestoration
             }
         }
 
-        private static CharacterBody GetNewtBody()
+        private static CharacterBody FindNewtBody()
         {
             // there are probably better ways to do this too but yea
             foreach (var teamComponent in TeamComponent.GetTeamMembers(TeamIndex.Neutral))
